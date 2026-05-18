@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Message Book</title>
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+  rel="stylesheet" />
+<style>
+  body {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Georgia, serif;
+    margin: 0;
+  }
+
+ 
+  .btn-back {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    border: none;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .btn-back:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    transform: scale(1.05);
+  }
+
+ 
+  .sidenote {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    background: rgba(0,0,0,0.2);
+    padding: 8px 20px;
+    font-family: Arial, sans-serif;
+    z-index: 998;
+  }
+
+  .book-container {
+    perspective: 2000px;
+  }
+
+  .book {
+    width: 350px;
+    height: 500px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s ease-in-out;
+  }
+
+  .book.open {
+    transform: rotateY(-160deg);
+  }
+
+  .cover,
+  .inside {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    backface-visibility: hidden;
+  }
+
+  .cover {
+    background: #8b4513;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    cursor: pointer;
+    transform-origin: left;
+  }
+
+  .cover h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .inside {
+    background: #fff8dc;
+    padding: 30px;
+    color: #333;
+    transform: rotateY(180deg);
+    overflow: auto;
+    font-family: Georgia, serif;
+    font-size: 16px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Attractive back button -->
+<a href="main.html" class="btn-back">Back to Main</a>
+
+<!-- Sidenote -->
+<div class="sidenote">
+  Note: I did this instead of images because I didn't know how to add images in VS Code.
+</div>
+
+<div class="book-container">
+  <div class="book" id="book">
+    <!-- COVER -->
+    <div class="cover" onclick="openBook()">
+      <div>
+        <h1>Message<br>For Our Teacher</h1>
+        <p>Click to Open</p>
+      </div>
+    </div>
+    <!-- INSIDE -->
+    <div class="inside">
+      <h3>Dear Teacher,</h3>
+      <p>
+        Thank you for guiding and supporting us throughout our journey.
+        We truly appreciate your patience, kindness, and dedication in
+        teaching us every day.
+        <br><br>
+        Because of you, we were able to learn so many things in coding which we really enjoyed. Thank you for also making class enjoyable
+        <br><br>
+        We will always treasure the memories we shared as a class,
+        and we are grateful for everything you have done for us.
+        <br><br>
+        Thank you for being an amazing teacher.
+      </p>
+      <p style="text-align:right; margin-top:30px;">— Your 10-RUBY Student, Eaden Bulo</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function openBook() {
+  document.getElementById("book").classList.toggle("open");
+}
+</script>
+
+</body>
+</html>
